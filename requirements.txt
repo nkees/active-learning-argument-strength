@@ -1,0 +1,10 @@
+tqdm
+numpy
+pandas
+#torch==1.4.0 -f https://download.pytorch.org/whl/torch_stable.html
+transformers
+tensorflow
+sklearn
+scipy
+mlflow
+Flask
