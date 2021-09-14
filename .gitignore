@@ -207,3 +207,7 @@ logging_model*
 performance_experiment*
 python_collect_env.py
 transitivity_check.py
+results/
+graphs/
+models/*
+data/
