@@ -196,7 +196,7 @@ def main():
     if args.active_learning and args.stopping_criterion == "performance reached":
         # Reference "passive" model
         mean, _, _ = report_performance_passive(args.passive_path)
-        reference_performance = float(mean)  # ToDo: in order to capture significantly higher performance, place the measure onto the upper limit
+        reference_performance = float(mean)
         logger.info(f"Reference performance is: {reference_performance} of type {type(reference_performance)}")
 
     # Define stopping condition for the active learning process: when all the data in the data pool has been used
@@ -211,7 +211,6 @@ def main():
         if args.active_learning:
             args.directed_argument_graph = Graph()
             if args.continue_learning:
-                # ToDo: fix the problem (see below)
                 print(
                     "Attention: Error danger! If you have deleted some of the models by hand and wish to "
                     "continue training from some specific point, it is currently impossible because "
@@ -283,7 +282,7 @@ def main():
                 ):  # reachable if learning iteration > 0
                     try:
                         logger.info(
-                            f"Using model for acquisition from: {LATEST_BEST_MODEL_PATH}"  # ToDo: fix this
+                            f"Using model for acquisition from: {LATEST_BEST_MODEL_PATH}"
                         )
                     except NameError:
                         _, LATEST_BEST_MODEL_PATH = find_newest_directory(path_latest_iteration)
@@ -297,7 +296,7 @@ def main():
                     # exists if there has been at least one learning round
                     if (
                         args.active_retrain
-                    ):  # ToDo: implement continued training for active_retrain
+                    ):
                         model = model_class.from_pretrained(LATEST_BEST_MODEL_PATH)
 
             mlflow.start_run()
