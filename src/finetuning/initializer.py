@@ -40,7 +40,11 @@ def initialize_with_mask(df, num_data_points, path, name):
 
 
 def create_and_save_initialization_mask(df, num_data_points, path_to, name):
-    # for higher diversity of the initial dataset graph_method is used
+    """
+    Initialize a sample and save its mask. For higher diversity of the initial dataset,
+    graph_method is used: if a candidate sample contains redundant argument pairs, the label
+    of which can be inferred from other argument pairs, the sample will be drawn anew.
+    """
     df_subset = df.sample(n=num_data_points)
     while contains_connected_arguments(df_subset):
         df_subset = df.sample(n=num_data_points)  # sample a new one

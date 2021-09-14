@@ -1,4 +1,3 @@
-# import dictionary for graph
 from collections import defaultdict
 from copy import deepcopy
 

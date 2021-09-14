@@ -11,10 +11,10 @@ import random
 import string
 
 
-def randomString(stringLength=8):
+def random_string(string_length=8):
     """ Returns a random string. """
     letters = string.ascii_lowercase
-    return "".join(random.choice(letters) for i in range(stringLength))
+    return "".join(random.choice(letters) for i in range(string_length))
 
 
 def enable_dropout(model):
@@ -29,7 +29,7 @@ def enable_dropout(model):
         if each_module.__class__.__name__.startswith("Dropout"):
             n = n + 1
             each_module.train()
-    print("Number of layers with dropout enabled : " + str(n)) # 38
+    print("Number of layers with dropout enabled : " + str(n))  # 38
     # all layers : 219
 
 
@@ -382,7 +382,7 @@ def predict(args, logger, eval_dataset, model, desc, acquire=False):
             tmp_eval_loss, logits = outputs[:2]
             eval_loss += tmp_eval_loss.mean().item()
         nb_eval_steps += 1
-        # np.savetxt(os.path.join(args.output_dir, "weights_output_{}.txt".format(randomString())), logits)
+        # np.savetxt(os.path.join(args.output_dir, "weights_output_{}.txt".format(random_string())), logits)
 
         if preds is None:
             preds = logits.detach().cpu().numpy()

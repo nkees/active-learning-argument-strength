@@ -1,6 +1,6 @@
 import argparse
 import logging
-from clean_up import delete_models_in_finished_process, clear_directory, find_subdirectories
+from src.postprocessing.clean_up import delete_models_in_finished_process, clear_directory, find_subdirectories
 
 logger = logging.getLogger(__name__)
 

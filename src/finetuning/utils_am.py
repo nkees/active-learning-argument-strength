@@ -11,8 +11,7 @@ import pandas as pd
 import random
 import numpy as np
 
-from src.finetuning.graph_structure import Graph
-from src.finetuning.data_acquisition import RandomAcquisition, UncertaintyAcquisition, DiversityAcquisition, GraphDiversityAcquisition, GraphScoreAcquisition, acquisition_functions
+from src.finetuning.data_acquisition import RandomAcquisition, UncertaintyAcquisition
 
 if is_tf_available():
     import tensorflow as tf
@@ -312,15 +311,9 @@ class APProcessor(DataProcessor):
         """
         dataset_name = detect_dataset_name(args.data_dir)
         if args.active_learning:
-            if args.graph_method and not args.distributed and not args.graph_scoring:
-                acquisition_class = GraphDiversityAcquisition(args.acq_func, args.output_data_dir, args.directed_argument_graph)
-            elif args.graph_scoring and not args.distributed and not args.graph_method:
-                acquisition_class = GraphScoreAcquisition(args.acq_func, args.output_data_dir)
-            elif args.distributed and not args.graph_method and not args.graph_scoring:
-                acquisition_class = DiversityAcquisition(args.acq_func, args.output_data_dir)
-            elif args.acq_func == "random" and not args.graph_method and not args.distributed and not args.graph_scoring:
+            if args.acq_func == "random":
                 acquisition_class = RandomAcquisition(args.acq_func, args.output_data_dir)
-            elif args.acq_func in acquisition_functions and not args.graph_method and not args.distributed and not args.graph_scoring:
+            elif args.acq_func in acquisition_functions:
                 acquisition_class = UncertaintyAcquisition(args.acq_func, args.output_data_dir)
             else:
                 raise NotImplementedError("This acquisition mode has not been recognized or implemented.")

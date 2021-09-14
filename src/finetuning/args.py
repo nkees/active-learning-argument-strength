@@ -113,16 +113,6 @@ def parser_arguments(all_models, model_classes, parser):
         help="Selection strategy for active learning.",
     )
     parser.add_argument(
-        "--graph_method",
-        action="store_true",
-        help="Whether to use boosting through graph-based methods or use just simple heuristics, when active learning.",
-    )
-    parser.add_argument(
-        "--graph_scoring",
-        action="store_true",
-        help="Whether to use the graph-scoring method.",
-    )
-    parser.add_argument(
         "--output_data_dir",
         type=str,
         help="If active learning, set the directory for the data.",

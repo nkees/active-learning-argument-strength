@@ -28,7 +28,6 @@ def find_newest_directory(dir):
                 list_of_numbers.append(-1)
         logger.info("List of numbers: {}".format(list_of_numbers))
         largest = subfolders.pop(list_of_numbers.index(max(list_of_numbers)))
-        # ToDo: IndexError: pop from empty list - fix this in case no folders are there
         remaining_subfolders = subfolders
     else:
         largest = subfolders.pop(0)
