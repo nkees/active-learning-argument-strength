@@ -2,7 +2,7 @@
 Code to the paper "Active Learning for Argument Strength Estimation".
 
 If you use it, please cite like this:
-
+```
 @inproceedings{kees-etal-2021-active,
     title = "Active Learning for Argument Strength Estimation",
     author = "Kees, Nataliia  and
@@ -19,7 +19,7 @@ If you use it, please cite like this:
     pages = "144--150",
     abstract = "High-quality arguments are an essential part of decision-making. Automatically predicting the quality of an argument is a complex task that recently got much attention in argument mining. However, the annotation effort for this task is exceptionally high. Therefore, we test uncertainty-based active learning (AL) methods on two popular argument-strength data sets to estimate whether sample-efficient learning can be enabled. Our extensive empirical evaluation shows that uncertainty-based acquisition functions can not surpass the accuracy reached with the random acquisition on these data sets.",
 }
-
+```
 
 The following instructions allow to replicate the procedures described in the paper.
 
